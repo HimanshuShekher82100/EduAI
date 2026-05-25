@@ -566,10 +566,11 @@ with tab2:
     # ==============================
     # SUBTAB 1 — SMART NOTES
     # ==============================
+    # ==============================
+    # SUBTAB 1 — SMART NOTES
+    # ==============================
     with subtab1:
-        with subtab1:
-
-         st.markdown("## 📝 Smart Notes Generator")
+        st.markdown("## 📝 Smart Notes Generator")
         st.write("Koi bhi topic dalo — AI notes banayega!")
         st.write("---")
 
@@ -602,7 +603,6 @@ with tab2:
             st.write("---")
 
             if st.button("📥 PDF Download Karo"):
-
                 from reportlab.lib.pagesizes import A4
                 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
                 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
