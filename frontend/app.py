@@ -3,7 +3,6 @@ import requests
 import os
 import time
 import tempfile
-import whisper
 from PIL import Image
 from streamlit_mic_recorder import mic_recorder
 import streamlit.components.v1 as components
@@ -21,11 +20,17 @@ st.set_page_config(
 # =========================
 # 2. WHISPER MODEL LOAD
 # =========================
-@st.cache_resource
-def load_whisper_model():
-    return whisper.load_model("base")
-
-model = load_whisper_model()
+#✅ Ye daalo
+try:
+    import whisper
+    @st.cache_resource
+    def load_whisper_model():
+        return whisper.load_model("base")
+    model = load_whisper_model()
+    WHISPER_AVAILABLE = True
+except:
+    WHISPER_AVAILABLE = False
+    model = None
 
 # =========================
 # 3. BASE DIRECTORY (Image path fix)

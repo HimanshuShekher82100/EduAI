@@ -1,0 +1,8 @@
+streamlit
+requests
+Pillow
+streamlit-mic-recorder
+pydub
+reportlab
+openai-whisper
+torch
