@@ -465,9 +465,9 @@ with tab1:
 
             try:
                 if uploaded_file is not None:
-                    url = f"http://127.0.0.1:8000/pdfchat?query={user_input}&filename={uploaded_file.name}"
+                    url = f"https://eduai-ob59.onrender.com/pdfchat?query={user_input}&filename={uploaded_file.name}"
                 else:
-                    url = f"http://127.0.0.1:8000/chat?query={user_input}"
+                    url = f"https://eduai-ob59.onrender.com/chat?query={user_input}"
 
                 with st.spinner("🤖 EduAI soch raha hai..."):
                     response = requests.get(url, timeout=30)
@@ -587,7 +587,7 @@ with tab2:
         if st.button("✨ Notes Generate Karo"):
             if topic:
                 with st.spinner("📝 Notes ban rahe hain..."):
-                    url = f"http://127.0.0.1:8000/generate-notes?topic={topic}"
+                    url = f"https://eduai-ob59.onrender.com/generate-notes?topic={topic}"
                     response = requests.get(url, timeout=60)
                     data = response.json()
                     st.session_state.generated_notes = data["notes"]
@@ -692,7 +692,7 @@ with tab2:
             if st.button("✨ Topic se Flashcards"):
                 if fc_topic:
                     with st.spinner("🃏 Flashcards ban rahe hain..."):
-                        url = f"http://127.0.0.1:8000/generate-flashcards?topic={fc_topic}"
+                        url = f"https://eduai-ob59.onrender.com/generate-flashcards?topic={fc_topic}"
                         response = requests.get(url, timeout=60)
                         data = response.json()
                         st.session_state.flashcards = data["flashcards"]
@@ -707,7 +707,7 @@ with tab2:
                 if st.session_state.generated_notes:
                     with st.spinner("🃏 Notes se flashcards ban rahe hain..."):
                         notes_topic = st.session_state.get("notes_topic", "Notes")
-                        url = f"http://127.0.0.1:8000/generate-flashcards?topic={notes_topic}"
+                        url = f"https://eduai-ob59.onrender.com/generate-flashcards?topic={notes_topic}"
                         response = requests.get(url, timeout=60)
                         data = response.json()
                         st.session_state.flashcards = data["flashcards"]
@@ -825,7 +825,7 @@ with subtab3:
     if st.button("✨ Mindmap Generate Karo"):
         if mm_topic:
             with st.spinner("🧠 Mindmap ban raha hai..."):
-                url = f"http://127.0.0.1:8000/generate-mindmap?topic={mm_topic}"
+                url = f"https://eduai-ob59.onrender.com/generate-mindmap?topic={mm_topic}"
                 response = requests.get(url, timeout=60)
                 data = response.json()
                 st.session_state.mindmap_data = data["mindmap"]
