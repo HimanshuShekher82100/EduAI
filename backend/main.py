@@ -131,6 +131,30 @@ def chat(query: str):
 
 @app.get("/pdfchat")
 def pdfchat(query: str, filename: str):
+    try:
+        pdf_path = f"frontend/uploads/{filename}"
+        reader = PdfReader(pdf_path)
+        pdf_text = ""
+        for page in reader.pages:
+            text = page.extract_text()
+            if text:
+                pdf_text += text
+
+        prompt = f"""PDF Content:
+{pdf_text[:3000]}
+
+Question: {query}
+
+Answer from PDF only."""
+
+        completion = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return {"response": completion.choices[0].message.content}
+
+    except Exception as e:
+        return {"response": str(e)}
 
     try:
 
