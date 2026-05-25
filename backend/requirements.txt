@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+groq
+pypdf
+langchain-text-splitters
+langchain-community
+sentence-transformers
+faiss-cpu
